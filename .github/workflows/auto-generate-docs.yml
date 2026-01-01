@@ -35,7 +35,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip'
+          # Note: cache is optional and requires requirements.txt or pyproject.toml
+          # If the repo doesn't have these files, remove the cache line
+          # cache: 'pip'  # Commented out to work with repos without dependency files
       
       - name: Install dependencies
         run: |
