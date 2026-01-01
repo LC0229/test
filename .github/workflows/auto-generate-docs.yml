@@ -52,9 +52,12 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PYTHONPATH: ${{ github.workspace }}/src
         run: |
-          cd ${{ github.workspace }}/src
+          # Clone moxi repository to get the doc_generator module
+          echo "Cloning moxi repository..."
+          git clone --depth 1 https://github.com/LC0229/moxi.git /tmp/moxi
+          export PYTHONPATH=/tmp/moxi/src:$PYTHONPATH
+          cd /tmp/moxi/src
           python -m doc_generator.main \
             https://github.com/${{ github.repository }} \
             --auto-write \
