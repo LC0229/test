@@ -6,6 +6,8 @@ import csv
 
 
 
+
+
 if __name__ == "__main__":
     chat = cg.Chatbot(cg.api_Key)
     term = input("what keywords you would like to search? ")
