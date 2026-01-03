@@ -4,6 +4,8 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 
+
+
 def __crawler_article__(url):
     response = requests.get(url)
     soup = bs(response.content, "html.parser")
