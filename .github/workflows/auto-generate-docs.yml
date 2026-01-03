@@ -8,6 +8,7 @@ on:
     paths:
       # Only trigger when code changes, not when README changes
       - 'src/**'
+      - '**/*.py'  # Python files anywhere in the repo
       - 'pyproject.toml'
       - '.github/workflows/auto-generate-docs.yml'
       - 'Makefile'
