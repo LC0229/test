@@ -1,81 +1,63 @@
 # test
-Last updated: 2026-01-03 08:05:03 UTC
+Last updated: 2026-01-03 08:10:34 UTC
 
 ## Description
 No description available.
 
 ## How This Project Works
-The `test` application is designed to facilitate the retrieval of related articles from PubMed based on user-defined keywords. The architecture of this application consists of several Python modules that interact with each other to process user input, perform web scraping, and handle data storage.
+The `test` application is designed to facilitate the search of articles on PubMed based on user-defined keywords. The main components include:
+
+1. **Chatbot Integration**: The application utilizes the `chatgpt.py` module to interface with a chatbot (presumably for user input or assistance). The API key for the chatbot is required for proper functionality.
+
+2. **Biosearch Module**: The `biosearch.py` module is responsible for crawling articles from the PubMed database. It constructs the appropriate URL based on user input and retrieves the relevant article data.
+
+3. **Data Collection and Export**: The application collects article data (such as title, authors, PMID, and link) and stores it in a CSV file named `related_articles.csv`. This is handled within the `main.py` script, which orchestrates the flow of data from input to output.
 
 ### Workflow
-1. **User Input**: The application starts by prompting the user to enter keywords they wish to search for.
-2. **Building the Query**: These keywords are then used to construct a URL that directs to the PubMed search page.
-3. **Web Scraping**: The `biosearch.py` module contains functionality to scrape article information (title, authors, PMID, and link) from the constructed URL.
-4. **Data Collection**: The scraping process is executed over multiple pages (up to 4 in the current implementation), collecting articles and storing them in a list.
-5. **Data Output**: Finally, the collected data is written to a CSV file (`related_articles.csv`), allowing for easy access and further analysis.
+- The user is prompted to enter keywords for searching articles.
+- The application constructs a URL for PubMed and retrieves articles across multiple pages.
+- The article data is compiled and saved to a CSV file for further use.
 
 ## How to Use
-To use the `test` application, follow these steps:
-
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/test.git
+   git clone <repository-url>
    cd test
    ```
 
-2. **Install Dependencies**: Make sure you have the required libraries installed. You might need to install `requests` or any other dependencies used in the code. You can use pip for installation:
-   ```bash
-   pip install requests
-   ```
+2. **Install Required Dependencies**: Ensure that you have any necessary dependencies installed. (Note: Specific dependencies are not listed in the provided information.)
 
 3. **Run the Application**:
-   Execute the following command to start the application:
+   Execute the `main.py` script to start the application:
    ```bash
    python main.py
    ```
 
-4. **Input Keywords**: When prompted, enter the keywords for your search. For example:
-   ```
-   what keywords you would like to search? cancer
-   ```
+4. **Input Keywords**: When prompted, enter the keywords you wish to search for in the PubMed database.
 
-5. **Access the Output**: After the application finishes running, find the `related_articles.csv` file in the project directory. This file contains the scraped article data.
+5. **Retrieve Data**: The application will fetch articles and save them in the `related_articles.csv` file.
 
-### Configuration Options
-Currently, the application does not support additional configuration options. Future updates may include options for customizing the number of pages to scrape or output formats.
-
-### Common Use Cases
-- Researchers looking for academic articles on specific topics.
-- Students needing to gather literature for assignments.
-- Anyone interested in tracking research trends in specific fields.
+### Command-Line Example
+```bash
+$ python main.py
+what keywords you would like to search? cancer treatment
+```
 
 ## Features
-- Keyword-based search for related articles from PubMed.
-- Web scraping of article details including title, authors, PMID, and link.
-- Multi-page scraping capability (up to 4 pages).
-- Output of collected data into a CSV file for easy analysis.
+- Keyword-based article search on PubMed.
+- Multi-page crawling for comprehensive data retrieval.
+- Automatic CSV export of article details for further analysis.
+- Integration with a chatbot for enhanced user interaction.
 
 ## Installation Instructions
-1. Ensure Python is installed on your machine.
-2. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/test.git
-   ```
-3. Navigate to the project directory:
-   ```bash
-   cd test
-   ```
-4. Install required Python libraries (if any):
-   ```bash
-   pip install -r requirements.txt
-   ```
+- Clone the repository to your local machine.
+- Ensure Python is installed and set up in your environment.
+- Install any necessary libraries (not specified in the current details).
 
 ## Usage Examples
-To execute the application, simply run:
-```bash
-python main.py
-```
-Follow the prompt to input your search keywords. For example, entering "diabetes" will initiate a search for articles related to diabetes.
+After running the `main.py` script:
+1. Input a relevant search term, such as "diabetes research".
+2. The application will generate a CSV file named `related_articles.csv` containing articles related to your search term.
 
 ## Project Structure
 ```
@@ -91,12 +73,11 @@ Follow the prompt to input your search keywords. For example, entering "diabetes
 ```
 
 ## Contributing Guidelines
-We welcome contributions to the `test` project! If you would like to contribute, please follow these steps:
+Contributions are welcome! Please follow these steps:
 1. Fork the repository.
 2. Create a new branch for your feature or bug fix.
-3. Make your changes and commit them.
-4. Push your branch to your forked repository.
-5. Create a pull request explaining your changes.
+3. Make your changes and commit them with clear messages.
+4. Push your branch and create a pull request.
 
-## License
-This project does not currently have a specified license. Please check the repository for any updates or licensing information.
+## License Information
+License information is not provided. Please check the repository for any licensing details.
